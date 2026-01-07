@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amazon Product Reviewer — Apply</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#111827;
+      --accent2:#0b1220;
+      --bg:#ffffff;
+      --surface:#f6f7f9;
+      --border:#e5e7eb;
+      --text:#111827;
+      --muted:#6b7280;
+      --good:#16a34a;
+      --warn:#f59e0b;
+      --shadow:0 18px 45px rgba(0,0,0,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding:22px 16px 90px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:720px;
+    }
+
+    .top{
+      display:flex;
+      justify-content:center;
+      margin-bottom:14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--warn);
+      box-shadow:0 0 0 4px rgba(245,158,11,.14);
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .brand-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+
+    .logo{
+      width:34px;height:34px;border-radius:12px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      color:var(--text);
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .chip{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:30px;
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+
+    .sub{
+      margin:0 0 14px;
+      font-size:14px;
+      color:var(--muted);
+      max-width:64ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .box{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:var(--surface);
+      padding:12px;
+    }
+
+    .box h2{
+      margin:0 0 8px;
+      font-size:13px;
+      letter-spacing:-.01em;
+    }
+
+    .list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:8px;
+    }
+
+    .item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size:13px;
+      color:var(--text);
+    }
+
+    .check{
+      width:18px;height:18px;border-radius:50%;
+      border:2px solid var(--good);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--good);
+      font-size:11px;
+      margin-top:1px;
+      flex:0 0 auto;
+    }
+
+    .muted{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:8px;
+      line-height:1.45;
+    }
+
+    .cta-wrap{
+      margin-top:14px;
+      display:grid;
+      gap:10px;
+    }
+
+    .cta{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      padding:14px 16px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      font-size:14px;
+      text-decoration:none;
+      border:0;
+      transition:background .15s ease, transform .08s ease;
+      box-shadow:0 16px 40px rgba(17,24,39,.18);
+    }
+
+    .cta:hover{ background:var(--accent2); }
+    .cta:active{ transform:translateY(1px); }
+
+    .secondary{
+      background:#fff;
+      color:var(--text);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+    .secondary:hover{ background:var(--surface); }
+
+    .fine{
+      font-size:11px;
+      color:#9ca3af;
+      text-align:center;
+      line-height:1.45;
+    }
+
+    .faq{
+      margin-top:12px;
+      display:grid;
+      gap:10px;
+    }
+    details{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#fff;
+      padding:12px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      font-size:13px;
+    }
+    details p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Sticky CTA (mobile) */
+    .sticky{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      background:rgba(255,255,255,.92);
+      border-top:1px solid var(--border);
+      backdrop-filter:blur(10px);
+      padding:10px 12px;
+      display:flex;
+      justify-content:center;
+      z-index:50;
+    }
+    .sticky .cta{
+      max-width:720px;
+      width:100%;
+      margin:0;
+      padding:12px 14px;
+      font-size:13px;
+    }
+
+    @media (max-width:720px){
+      .grid{ grid-template-columns:1fr; }
+      h1{ font-size:28px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="wrap">
+
+      <div class="top">
+        <div class="pill"><span class="dot"></span> </div>
+      </div>
+
+      <div class="card">
+        <div class="brand">
+          <div class="brand-left">
+            <div class="logo">AR</div>
+            <div>
+              <div style="font-weight:900;">Amazon Product Reviewer</div>
+              <div style="font-size:12px;color:var(--muted);">Remote • Flexible schedule</div>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="chip">Entry-level</div>
+            <div class="chip">No experience required</div>
+            <div class="chip">Fast application</div>
+          </div>
+        </div>
+
+        <h1>Apply to become a Product Reviewer</h1>
+        <p class="sub">
+          Share feedback on everyday products, follow simple guidelines, and complete short reviews.
+          Start with a quick application to see if you qualify.
+        </p>
+
+        <div class="grid">
+          <div class="box">
+            <h2>What you’ll do</h2>
+            <ul class="list">
+              <li class="item"><span class="check">✓</span>Evaluate items and share your opinion</li>
+              <li class="item"><span class="check">✓</span>Complete short review tasks</li>
+              <li class="item"><span class="check">✓</span>Follow basic quality guidelines</li>
+            </ul>
+            <div class="muted">Time per review varies depending on the item and requirements.</div>
+          </div>
+
+          <div class="box">
+            <h2>Basic requirements</h2>
+            <ul class="list">
+              <li class="item"><span class="check">✓</span>Valid email address</li>
+              <li class="item"><span class="check">✓</span>18 years or older</li>
+              <li class="item"><span class="check">✓</span>Ability to complete tasks on time</li>
+            </ul>
+            <div class="muted">Availability and eligibility may vary by location.</div>
+          </div>
+        </div>
+
+        <div class="cta-wrap">
+          <a class="cta"
+             href="https://trkfy.org/aff_c?offer_id=971&aff_id=122650&source=amazonjob"
+             target="_blank" rel="nofollow noopener">
+            Apply Now
+          </a>
+          <a class="cta secondary"
+             href="https://trkfy.org/aff_c?offer_id=971&aff_id=122650&source=amazonjob"
+             target="_blank" rel="nofollow noopener">
+            Check Eligibility
+          </a>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>How long does the application take?</summary>
+            <p>Most people complete the application in just a few minutes.</p>
+          </details>
+          <details>
+            <summary>Do I need prior experience?</summary>
+            <p>No. The application includes guidelines and a simple screening step.</p>
+          </details>
+          <details>
+            <summary>When will I hear back?</summary>
+            <p>Review times vary depending on applicant volume and eligibility checks.</p>
+          </details>
+        </div>
+
+        <div class="fine">
+          This is a promotional application page. Terms and eligibility requirements may apply.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky" aria-label="Sticky apply button">
+    <a class="cta"
+       href="https://trkfy.org/aff_c?offer_id=971&aff_id=122650&source=amazonjob"
+       target="_blank" rel="nofollow noopener">
+      Apply Now
+    </a>
+  </div>
+</body>
+</html>
+
+
